@@ -27,6 +27,14 @@ class SnakeClass:
         new_item.goto(position)
         self.lst.append(new_item)
 
+    def refresh(self):
+        for seg in self.lst:
+            seg.goto(1000, 1000)
+        self.lst.clear()
+        self.create_snake()
+        self.head = self.lst[0]
+        self.head.color('green')
+
     def extend(self):
         self.add_segment(self.lst[-1].position())
 

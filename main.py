@@ -42,13 +42,13 @@ while condition:
     # detect collision with wall.
     if (my_snack.lst[0].xcor() > POS_BOARDER or my_snack.lst[0].xcor() < NEG_BOARDER or my_snack.lst[0].ycor() > POS_BOARDER or
             my_snack.lst[0].ycor() < NEG_BOARDER):
-        condition = False
-        score_board.game_over()
+        score_board.refresh()
+        my_snack.refresh()
 
     # detect collision with wall.
     for segment in my_snack.lst[2:]:
-        if my_snack.head.distance(segment) < 0:
-            condition = False
-            score_board.game_over()
+        if my_snack.head.distance(segment) < 10:
+            score_board.refresh()
+            my_snack.refresh()
 
 sc.exitonclick()
